@@ -1,4 +1,4 @@
-#iterates through calendar and pulls addresses of box score pages so that scraper d can pull player level data
+#iterates through calendar and pulls addresses of box score pages so that another scraper can pull player level data for every game
 
 import requests
 from bs4 import BeautifulSoup
