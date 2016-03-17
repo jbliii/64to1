@@ -12,7 +12,7 @@ with open('teamList_2016.csv', 'r') as csvfile:
 	next(csvreader)
 
 	for teamPage in csvreader:
-		#Open Box Score Page
+		#Open team schedule page
 		print "Getting data for " + str(teamPage[0])
 		url = "http://www.sports-reference.com/cbb/schools/" + str(teamPage[0]) + "/2016-schedule.html"
 		page = requests.get(url)
