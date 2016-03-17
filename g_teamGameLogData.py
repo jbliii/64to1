@@ -15,9 +15,8 @@ with open('teamList_2016.csv', 'r') as csvfile:
 	csvreader = csv.reader(csvfile)
 	next(csvreader)
 
-	#Open box scores in range
+	#Open gamelogs for every team
 	for teamPage in csvreader:
-		#Open Box Score Page
 		print "Getting data for " + str(teamPage[0])
 		url = "http://www.sports-reference.com/cbb/schools/" + str(teamPage[0]) + "/2016-gamelogs.html"
 		page = requests.get(url)
