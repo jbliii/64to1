@@ -9,9 +9,8 @@ with open('teamList_2016.csv', 'r') as csvfile:
 	csvreader = csv.reader(csvfile)
 	next(csvreader)
 
-	#Open box scores in range
+	#Open team summary pages containing roster data
 	for teamPage in csvreader:
-		#Open Box Score Page
 		print "Getting data for " + str(teamPage[0])
 		url = "http://www.sports-reference.com/cbb/schools/" + str(teamPage[0]) + "/2016.html"
 		page = requests.get(url)
@@ -23,6 +22,7 @@ with open('teamList_2016.csv', 'r') as csvfile:
 		
 		
 		for row in rows:
+			#scrub commas from players with suffixes, as this will cause issues with the csv
 			name = row.findAll('td')[0].get_text().replace(',','')
 			href = row.findAll('td')[0].find('a')
 			YearVal = row.findAll('td')[2].string
